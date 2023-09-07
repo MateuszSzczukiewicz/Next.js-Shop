@@ -8,7 +8,7 @@ const products: ProductItemType[] = [
     category: "Accessories",
     price: 2137,
     coverImage: {
-      alt: "",
+      alt: "Kubek",
       src: "/product_1.png",
     },
   },
@@ -18,7 +18,7 @@ const products: ProductItemType[] = [
     category: "Accessories",
     price: 2137,
     coverImage: {
-      alt: "",
+      alt: "Kubek",
       src: "/product_1.png",
     },
   },
@@ -28,7 +28,7 @@ const products: ProductItemType[] = [
     category: "Accessories",
     price: 2137,
     coverImage: {
-      alt: "",
+      alt: "Kubek",
       src: "/product_1.png",
     },
   },
@@ -38,7 +38,7 @@ const products: ProductItemType[] = [
     category: "Accessories",
     price: 2137,
     coverImage: {
-      alt: "",
+      alt: "Kubek",
       src: "/product_1.png",
     },
   },
