@@ -36,16 +36,25 @@ export default async function SingleProductPage({
 }) {
   const product = await getProductById(params.productId);
   return (
-    <>
-      <article className="max-w-xs">
-        <ProductCoverImage {...product.coverImage} />
-        <ProductListItemDescription product={product} />
-      </article>
-      <aside>
-        <Suspense fallback={"Ładowanie..."}>
-          <SuggestedProductsList />
-        </Suspense>
-      </aside>
-    </>
+    <div className="flex flex-grow flex-col">
+      <section className="mx-auto grid max-w-7xl p-8">
+        <article>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <ProductCoverImage {...product.coverImage} />
+            <ProductListItemDescription product={product} />
+          </div>
+        </article>
+        <aside data-testid="related-products">
+          <div className="py-16">
+            <h2 className="py-8 text-xl font-semibold leading-7">
+              Suggested products
+            </h2>
+            <Suspense fallback={"Ładowanie..."}>
+              <SuggestedProductsList />
+            </Suspense>
+          </div>
+        </aside>
+      </section>
+    </div>
   );
 }
