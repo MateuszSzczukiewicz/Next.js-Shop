@@ -2,6 +2,14 @@ import Link from "next/link";
 import { ShoppingBag } from "lucide-react";
 import { ActiveLink } from "@/ui/atoms/ActiveLink";
 
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/products", label: "All" },
+  { href: "/products/t-shirts", label: "T-shirts" },
+  { href: "/products/hoodies", label: "Hoodies" },
+  { href: "/products/accessories", label: "Accessories" },
+];
+
 export function NavBar() {
   return (
     <header className="sticky top-0 z-20 border-b bg-white bg-opacity-60 backdrop-blur-lg">
@@ -9,21 +17,11 @@ export function NavBar() {
         <div className="flex flex-col justify-between gap-y-4 pb-4 lg:flex-row lg:items-center lg:pb-0">
           <nav className="scrolling-touch scroll-shadows -mx-2 flex overflow-x-scroll lg:mx-0 lg:h-16 lg:overflow-x-auto">
             <ul className="hidden flex-shrink-0 items-center lg:flex">
-              <li className="first:pl-4 last:pr-4 lg:px-0">
-                <ActiveLink href="/" label="Home" />
-              </li>
-              <li className="first:pl-4 last:pr-4 lg:px-0">
-                <ActiveLink href="/products" label="All" />
-              </li>
-              <li className="first:pl-4 last:pr-4 lg:px-0">
-                <ActiveLink href="/t-shirts" label="T-shirts" />
-              </li>
-              <li className="first:pl-4 last:pr-4 lg:px-0">
-                <ActiveLink href="/hoodies" label="Hoodies" />
-              </li>
-              <li className="first:pl-4 last:pr-4 lg:px-0">
-                <ActiveLink href="/accessories" label="Accessories" />
-              </li>
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <ActiveLink href={link.href}>{link.label}</ActiveLink>
+                </li>
+              ))}
             </ul>
           </nav>
           <div className="ml-auto h-full lg:ml-4">

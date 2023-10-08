@@ -1,12 +1,21 @@
 import { type Metadata } from "next";
-import { ProductsList } from "@/ui/organisms/ProductsList";
-import { getProductsList } from "@/app/api/products";
+import { executeGraphql } from "@/api/graphqlApi";
+import { ProductsGetListDocument } from "@/gql/graphql";
 
 export const metadata: Metadata = {
   title: "Products list",
 };
 
 export default async function ProductPage() {
-  const products = await getProductsList();
-  return <ProductsList products={products} data-testid="products-list" />;
+  const { products } = await executeGraphql(ProductsGetListDocument);
+
+  return (
+    <ul>
+      {products.map((product) => (
+        <li key={product.id}>
+          <Link href={`/product/${product.id}`}>{product.name}</Link>
+        </li>
+      ))}
+    </ul>
+  );
 }

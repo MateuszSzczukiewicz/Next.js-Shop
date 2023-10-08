@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { type ReactNode } from "react";
 
 type ActiveLinkProps = {
   href: string;
-  label: string;
+  children: ReactNode;
 };
 
-export const ActiveLink = ({ href, label }: ActiveLinkProps) => {
+export const ActiveLink = ({ href, children }: ActiveLinkProps) => {
   const pathname: string = usePathname();
   const isActive: boolean = pathname === href;
 
@@ -19,7 +20,7 @@ export const ActiveLink = ({ href, label }: ActiveLinkProps) => {
         isActive ? "border-blue-500" : "border-transparent"
       }`}
     >
-      {label}
+      {children}
     </Link>
   );
 };
